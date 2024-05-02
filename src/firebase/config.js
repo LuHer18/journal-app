@@ -8,12 +8,12 @@ import { getFirestore } from "firebase/firestore/lite";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID
+  apiKey:'AIzaSyA32WmJcueLrCo_iz6NbI0N9X60DRykZNo', /* import.meta.env.VITE_API_KEY, */
+  authDomain:'journalapp-6ac4b.firebaseapp.com' /* import.meta.env.VITE_AUTH_DOMAIN */,
+  projectId: 'journalapp-6ac4b' /* import.meta.env.VITE_PROJECT_ID */,
+  storageBucket: 'journalapp-6ac4b.appspot.com' /* import.meta.env.VITE_STORAGE_BUCKET */,
+  messagingSenderId: '593808133437' /* import.meta.env.VITE_MESSAGING_SENDER_ID */,
+  appId: '1:593808133437:web:d834045631dd6cd6368954' /* import.meta.env.VITE_APP_ID */
 };
 
 // Initialize Firebase
