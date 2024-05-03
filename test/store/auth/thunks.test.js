@@ -1,6 +1,7 @@
-import { loginWithEmailPassword, registeUserWithEmailPassword, singInWithGoogle } from "../../../src/firebase/providers";
+import { loginWithEmailPassword, logoutFireBase, registeUserWithEmailPassword, singInWithGoogle } from "../../../src/firebase/providers";
 import { checkingCredentials, login, logout } from "../../../src/store/auth/authSlice";
-import { checkingAuthentication, starCreatingUserWithEmailPassword, starLoginWithEmailPassword, startGoogleSignIn } from "../../../src/store/auth/thunks";
+import { checkingAuthentication, starCreatingUserWithEmailPassword, starLoginWithEmailPassword, starLogout, startGoogleSignIn } from "../../../src/store/auth/thunks";
+import { clearNotesLogout } from "../../../src/store/journal";
 import { demoUser } from "../../fixtures/authFixtures";
 
 
@@ -111,7 +112,7 @@ describe('Pruebas de authThunks', () => {
 
         expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
         expect(dispatch).toHaveBeenCalledWith(login(data));
-     })
+    })
 
      test('starLoginWithEmailPassword debe de llamar logout - Error', async() => { 
         
@@ -130,6 +131,15 @@ describe('Pruebas de authThunks', () => {
 
         expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
         expect(dispatch).toHaveBeenCalledWith(logout({errorMessage}));
+    }) 
+    test('starLogout debe de llamar logoutFireBase, clearNotes y logout ', async() => { 
+        
+        //thunk
+
+        await starLogout()(dispatch)
+        expect(logoutFireBase).toHaveBeenCalled();
+        expect(dispatch).toHaveBeenCalledWith(clearNotesLogout());
+        expect(dispatch).toHaveBeenCalledWith(logout({}));
      })   
 
  })
