@@ -13,6 +13,7 @@ export const starNewNote = () => {
         const newNote = {
             title: '',
             body: '',
+            imageUrls: [],
             date: new Date().getTime(),
         }
 
